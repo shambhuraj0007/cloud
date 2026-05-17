@@ -1,0 +1,65 @@
+https://orgfarm-69d6d0e1a9-dev-ed.develop.my.salesforce.com/?ec=302&startURL=%2Fvisualforce%2Fsession%3Furl%3Dhttps%253A%252F%252Forgfarm-69d6d0e1a9-dev-ed.develop.lightning.force.com%252Flightning%252Fn%252Fdevedapp__Welcome
+
+shambhuraj960410054.b8732c886a8e@agentforce.com
+Satara@123
+Then go to setting then crete apex class and paste:
+
+public class StudentSystemController {
+
+    public String studentName {get; set;}
+    public String course {get; set;}
+
+    public void saveStudent() {
+
+        Account acc = new Account();
+
+        acc.Name = studentName + ' - ' + course;
+
+        insert acc;
+
+        ApexPages.addMessage(
+            new ApexPages.Message(
+                ApexPages.Severity.CONFIRM,
+                'Student Record Saved Successfully'
+            )
+        );
+
+        studentName = '';
+        course = '';
+    }
+}
+
+Create new visualforce page:
+maincode
+
+<apex:page controller="StudentSystemController">
+
+    <apex:form>
+
+        <apex:pageBlock title="Student Management System">
+
+            <apex:pageMessages />
+
+            <apex:pageBlockSection columns="1">
+
+                <apex:inputText value="{!studentName}"
+                                label="Student Name"/>
+
+                <apex:inputText value="{!course}"
+                                label="Course"/>
+
+            </apex:pageBlockSection>
+
+            <apex:commandButton value="Save Student"
+                                action="{!saveStudent}"/>
+
+        </apex:pageBlock>
+
+    </apex:form>
+
+</apex:page>
+
+And run at:
+https://orgfarm-69d6d0e1a9-dev-ed--c.develop.vf.force.com/apex/maincode
+
+
