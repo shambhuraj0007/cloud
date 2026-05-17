@@ -1,0 +1,66 @@
+https://orgfarm-69d6d0e1a9-dev-ed.develop.my.salesforce.com/?ec=302&startURL=%2Fvisualforce%2Fsession%3Furl%3Dhttps%253A%252F%252Forgfarm-69d6d0e1a9-dev-ed.develop.lightning.force.com%252Flightning%252Fn%252Fdevedapp__Welcome
+
+shambhuraj960410054.b8732c886a8e@agentforce.com
+Satara@123
+Then go to setting then crete apex class and paste:
+
+public class CalculatorApp {
+
+    // Addition
+    public static Integer addNumbers(Integer a, Integer b) {
+
+        Integer result = a + b;
+
+        System.debug('Addition = ' + result);
+
+        return result;
+    }
+
+    // Subtraction
+    public static Integer subtractNumbers(Integer a, Integer b) {
+
+        Integer result = a - b;
+
+        System.debug('Subtraction = ' + result);
+
+        return result;
+    }
+
+    // Multiplication
+    public static Integer multiplyNumbers(Integer a, Integer b) {
+
+        Integer result = a * b;
+
+        System.debug('Multiplication = ' + result);
+
+        return result;
+    }
+
+    // Division
+    public static Decimal divideNumbers(Integer a, Integer b) {
+
+        if(b == 0) {
+
+            System.debug('Cannot divide by zero');
+
+            return 0;
+        }
+
+        Decimal result = (Decimal)a / b;
+
+        System.debug('Division = ' + result);
+
+        return result;
+    }
+}
+
+And in input:
+
+CalculatorApp.addNumbers(10, 5);
+
+CalculatorApp.subtractNumbers(20, 8);
+
+CalculatorApp.multiplyNumbers(4, 6);
+
+CalculatorApp.divideNumbers(50, 5);
+
