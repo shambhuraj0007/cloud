@@ -1,0 +1,55 @@
+Go to and install and download an d create project
+https://docs.cloud.google.com/sdk/docs/install-sdk
+
+After installation open cli and run 
+gcloud init
+1
+Login and then 1
+Select project or enter project id
+Make folder and create your project inside it
+mkdir appengine-demo
+cd appengine-demo
+Index.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google App Engine</title>
+</head>
+<body>
+    <h1>Hello Google App Engine</h1>
+    <h2>Welcome to Google App Engine</h2>
+    <h4>Google App Engine is a fully managed serverless platform for developing and hosting web applications at scale. With App Engine, you can focus on writing code without worrying about infrastructure management, as it automatically handles scaling, load balancing, and security.</h4>
+</body>
+</html>
+
+App.yaml
+runtime: python311
+
+
+handlers:
+- url: /
+static_files: index.html
+upload: index.html
+
+
+- url: /(.*)
+static_files: \1
+upload: (.*)
+
+Now run:
+gcloud app deploy
+If error:
+	https://console.cloud.google.com/home/dashboard?project=tyachi id taka.
+THEN GO TO-API AND SERVICES
+Then search nd enable these three apis:
+	App Engine Admin API
+	Cloud Storage API
+App Engine Admin API
+Then again run 
+gcloud app deploy
+
+
+
+
+
+
